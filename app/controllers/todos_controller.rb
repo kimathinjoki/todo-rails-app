@@ -6,7 +6,7 @@ class TodosController < ApplicationController
     end
 
     def create 
-        # add todo in DB
+        # add todo in DB.
 
         todo = Todo.create(todo_params)
 
