@@ -9,8 +9,11 @@ class TodosController < ApplicationController
         # add todo in DB.
 
         todo = Todo.create(todo_params)
-
-        render json: todo
+        if todo.valid?
+            render json: todo
+        else
+            render json: todo.errors
+        end
 
     end
 
