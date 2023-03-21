@@ -1,8 +1,17 @@
 class TodosController < ApplicationController
-    protect_from_forgery with: :null_session
+    # protect_from_forgery with: :null_session
 
-    def get_todos
+
+    
+
+
+    def todos
+        email = session[:email]
+        if email 
         render json: Todo.all
+        else
+            render json: {messadge: "Not authorized"}, status: :not_found
+        end
     end
 
     def create 

@@ -1,7 +1,10 @@
 class TodoSerializer < ActiveModel::Serializer
-  attributes :id :title :description :status :priority
+  attributes :title :description :status :priority :index_squared
 
   def index_squared
+
+    self.object.id = index 
+    index * index
 
   end
 
